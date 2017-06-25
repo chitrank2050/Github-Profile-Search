@@ -1,12 +1,19 @@
-<div class="row div_header" style="padding-top:20px">
-  <div class="medium-1 columns">
+<div class="row">
+  <div class="small-11 small-offset-1 medium-3 medium-offset-4 column form_div">
+    <form #f="ngForm">
+      <input type="text" placeholder="Search a user" [(ngModel)]="username" name="username" (keyup)="_searchUser()"/> 
+    </form>
+  </div>
+</div>
+<div *ngIf="_status" class="row div_header" style="padding-top:20px">
+  <div class="medium-1 small-2 columns">
     <img src="{{_user.avatar_url}}"/>
   </div>
-  <div class="medium-11 columns name_labels">
+  <div class="medium-11 small-10 columns name_labels">
     <div class="medium-6 columns">
       <h3>{{_user.name}}</h3>
     </div>
-    <div class="medium-6 columns">
+    <div class="small-12 medium-6 columns">
       <span class="label success">{{_user.public_repos}} Public Repos</span>
       <span class="label">{{_user.public_gists}} Public Gist</span>
       <span class="label warning">{{_user.followers}} Followers</span>
@@ -14,23 +21,23 @@
     </div>
     </div>
 </div>
-<div class="row" style="padding-top:40px;">
-  <div class="medium-3 columns">
-    <div class="medium-2 columns details_labels">
+<div *ngIf="_status" class="row" style="padding-top:40px;">
+  <div class="medium-3 small-12 columns">
+    <div class="medium-2 small-1 columns details_labels">
       <div class="columns"><i class="fa fa-user"></i></div>
       <div class="columns"><i class="fa fa-map-marker"></i></div>
       <div class="columns"><i class="fa fa-envelope-open"></i></div>
       <div class="columns"><i class="fa fa-feed"></i></div>
       <div class="columns"></div>
     </div>
-    <div class="medium-10 columns details">
+    <div class="medium-10 small-11 columns details">
       <div class="columns"><p>{{_user.login}}</p></div>
       <div class="columns"><p>{{_user.location}}</p></div>
       <div class="columns"><p>{{_user.email}}</p></div>
       <div class="columns"><p>{{_user.blog}}</p></div>
     </div>
   </div>
-  <div class="medium-9 columns repos">
+  <div class="medium-9 small-12 columns repos">
     <div class="repos_wrapper">
       <div *ngFor="let repo of _repos" class="columns">
         <h4><a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a></h4>
