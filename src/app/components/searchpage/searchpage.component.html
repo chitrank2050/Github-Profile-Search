@@ -5,7 +5,10 @@
     </form>
   </div>
 </div>
-<div *ngIf="_status" class="row div_header" style="padding-top:20px">
+<div *ngIf="loader" class="loader">
+  <img src="/assets/loader.svg"/>
+</div>
+<div *ngIf="status" class="row div_header" style="padding-top:20px">
   <div class="medium-1 small-2 columns">
     <img src="{{_user.avatar_url}}"/>
   </div>
@@ -21,7 +24,7 @@
     </div>
     </div>
 </div>
-<div *ngIf="_status" class="row" style="padding-top:40px;">
+<div *ngIf="status" class="row" style="padding-top:40px;">
   <div class="medium-3 small-12 columns">
     <div class="medium-2 small-1 columns details_labels">
       <div class="columns"><i class="fa fa-user"></i></div>

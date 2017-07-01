@@ -163,3 +163,14 @@ body::-webkit-scrollbar-track:active {
 body::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+.loader
+{
+    position: absolute;
+    background: #3F3C51;
+    width: 100%;
+    height: 90vh;
+    left: 0;
+    text-align: center;
+    padding-top: 15%;
+}

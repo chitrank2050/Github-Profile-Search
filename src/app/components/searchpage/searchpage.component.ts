@@ -13,18 +13,27 @@ import {GithubService} from '../../services/github.service';
 export class SearchpageComponent implements OnInit {
   private _user=[];
   private _repos=[];
-  private _status:boolean;
+  status:boolean;
   username:string;
+  loader:boolean;
 
   constructor(private _githhubserice:GithubService) {
-    this._status=false;
+    this.status=false;
+    this.loader=false;
    }
 
   _searchUser(){
-    this._status=true;
+    this.status=true;
+    this.loader=true;
+    if((this.username.trim())==="")
+    {
+      this.loader=false;
+      this.status=false;
+    }
     this._githhubserice._updateUser(this.username);
 
     this._githhubserice._getUser().subscribe(user=>{
+      this.loader=false;
       this._user=user;
     });
     
